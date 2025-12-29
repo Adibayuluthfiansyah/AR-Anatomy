@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="description" content="AR Anatomy Pocket Lab - Interactive 3D anatomy learning with WebAR">
+    <meta name="author" content="[Nama Anda]">
+    <title>AR Anatomy Pocket Lab</title>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/addons/p5.sound.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="loading">
+        <div class="logo">3D</div>
+        <h1>AR Anatomy Pocket Lab</h1>
+        <p>Interactive 3D Organ Visualization</p>
+        <div class="spinner"></div>
+        <div class="progress">Loading assets...</div>
+    </div>
+    
+    <div id="info-panel">
+        Tap screen to place organ • Drag to rotate view
+    </div>
+    
+    <div id="credits">
+        Made by <strong>Adibayu JR</strong>
+    </div>
+    
+    <script src="sketch.js"></script>
+    <script>
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const loading = document.getElementById('loading');
+                loading.classList.add('hidden');
+                if (window.innerWidth < 768) {
+                    setTimeout(() => {
+                        const infoPanel = document.getElementById('info-panel');
+                        infoPanel.classList.add('show');
+                        setTimeout(() => {
+                            infoPanel.classList.remove('show');
+                        }, 5000);
+                    }, 1000);
+                }
+            }, 3000); 
+        });
+    </script>
+</body>
+</html>
